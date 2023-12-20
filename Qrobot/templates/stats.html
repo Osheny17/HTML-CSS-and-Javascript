@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="icon" href="/static/imagenes/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <title>estadísticas</title>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/static/imagenes/logo.png" alt="logo pues hijito" style="border-radius: 20px; height:90px">
+        <h1 class="nombre-app" style="color:white "> </h1>
+    </div>
+    <div class="contenedor-pfp" onclick="toggleSidebar(event)">
+        <img src="/static/imagenes/pfp.png" alt="foto de perfil pues" style="height:70px">
+    </div>
+</header>
+
+<div id="sidebar" class="sidebar">
+    <div class="contenedor-pfp">
+    <a href=""><img src="/static/imagenes/pfp.png" alt="foto de perfil pues" style="height:70px; margin-left: 50px; margin-bottom: 50px;"></a>
+    </div>
+    <a href="stats"><button class="boton-sidebar"><img src="/static/imagenes/stats.png" style="height:30px; margin-right: 20px;">estadísticas</button></img></a>
+    <a href="/"><button class="boton-sidebar"><img src="/static/imagenes/select.png" style="height:30px;margin-right: 20px;">seleccionar<br>modo</button></img></a>
+    <a href="user_settings"><button class="boton-sidebar"><img src="/static/imagenes/options.png" style="height:30px; margin-right: 20px;">opciones</button></img></a>
+</div>
+
+
+
+<script>
+    function toggleSidebar(event) {
+        event.stopPropagation();
+        var sidebar = document.getElementById('sidebar');
+        if (sidebar.style.width === '0px' || !sidebar.style.width) {
+            sidebar.style.width = '250px';
+        } else {
+            sidebar.style.width = '0';
+        }
+    }
+
+    window.onclick = function(event) {
+        var sidebar = document.getElementById('sidebar');
+        if (!event.target.matches('.sidebar, .sidebar *')) {
+            sidebar.style.width = '0';
+        }
+    }
+</script>
+
+
+    <div class="contenedor" style="color: #ffd30c">
+        <img src="/static/imagenes/pfp.png" alt="" >
+        <h1 style="font-size: 2.5rem">username</h1>
+        <p style="font-weight: bold; font-size: 2rem">user, has trabajado</p>
+        <h2 style="font-size:4rem">2.5</h2><p style="font-weight: bold; font-size: 2rem;">horas hoy</p>
+    </div>
+
+    <div onclick="toggleHiddenText()" style="cursor: pointer; color: #fff53b; text-decoration: underline; text-align: center; user-select: none;">
+        haz click aquí para ver tus horas totales
+    </div>
+
+    <div id="hiddenText" style="opacity: 0; transition: opacity 1s; height: 0; overflow: hidden;">
+        <p style="font-size: 2.5rem;">has trabajado 200 horas en total</p>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+
+
+
+
+</body>
+</html>

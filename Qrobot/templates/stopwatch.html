@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="icon" href="/static/imagenes/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <title>a mi ritmo</title>
+</head>
+<body>
+    <header>
+    <div class="logo">
+        <img src="/static/imagenes/logo.png" alt="logo pues hijito" style="border-radius: 20px; height:90px">
+        <h1 class="nombre-app" style="color:white ">chambabot </h1>
+    </div>
+    <div class="contenedor-pfp" onclick="toggleSidebar(event)">
+        <img src="/static/imagenes/pfp.png" alt="foto de perfil pues" style="height:70px">
+    </div>
+    </header>
+
+    <div id="sidebar" class="sidebar">
+        <div class="contenedor-pfp">
+        <a href=""><img src="/static/imagenes/pfp.png" alt="foto de perfil pues" style="height:70px; margin-left: 50px; margin-bottom: 50px;"></a>
+        </div>
+        <a href="stats"><button class="boton-sidebar"><img src="/static/imagenes/stats.png" style="height:30px; margin-right: 20px;">estadísticas</button></img></a>
+        <a href="/"><button class="boton-sidebar"><img src="/static/imagenes/select.png" style="height:30px;margin-right: 20px;">seleccionar<br>modo</button></img></a>
+        <a href="user_settings"><button class="boton-sidebar"><img src="/static/imagenes/options.png" style="height:30px; margin-right: 20px;">opciones</button></img></a>
+    </div>
+
+
+
+    <script>
+        function toggleSidebar(event) {
+            event.stopPropagation();
+            var sidebar = document.getElementById('sidebar');
+            if (sidebar.style.width === '0px' || !sidebar.style.width) {
+                sidebar.style.width = '250px';
+            } else {
+                sidebar.style.width = '0';
+            }
+        }
+
+        window.onclick = function(event) {
+            var sidebar = document.getElementById('sidebar');
+            if (!event.target.matches('.sidebar, .sidebar *')) {
+                sidebar.style.width = '0';
+            }
+        }
+    </script>
+
+
+    <div class="contenedor-reloj">
+        <button id="start" style="background-color:#18191a; border:0px;" ><img id="startImg" src="/static/imagenes/start.png" alt="relojcito" style="height:200px"></button>
+
+    </div>
+
+
+    <div class="recomendamos">
+        <p>recomendamos el uso de <a href="https://www.youtube.com/watch?v=1wWruE9nXP0&t=2156s" target="_blank" style="color: #fff53b">ruido blanco</a> para mejor concentración</p>
+        <p>también puede hacer <a href="https://www.youtube.com/watch?v=1wWruE9nXP0"  target="_blank" style="color: #fff53b">click aquí</a> para una playlist de música recomendada para el estudio</p>
+
+    </div>
+
+
+
+    <div class="reloj">
+
+        <div class="time">
+            00:00:00
+        </div>
+        <div class="controls">
+            <button id="reset" style="color: white">Guardar progreso</button>
+        </div>
+
+    </div>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+
+
